@@ -7,30 +7,17 @@ import time
 driver=webdriver.Chrome()
 
 # Abrir a página web alvo
-driver.get('https://portal.dommus.com.br/login/morarmais')
+driver.get('https://www.omegle.com')
 
-# Localizar o elemento onde você deseja digitar a mensagem (você precisa inspecionar a página para encontrar o seletor correto)
-elemento_de_mensagem = driver.find_element(By.ID, "cpf")
+text = driver.find_element(By.ID,"textbtn").click()
 
-# Digitar a mensagem
-mensagem = "038.443.772-98"
-elemento_de_mensagem.send_keys(mensagem)
+time.sleep(10)
 
-# Simular o pressionamento da tecla Enter (ou a ação apropriada para enviar a mensagem)
-elemento_de_mensagem.send_keys(Keys.RETURN)
+chatmsg = driver.find_element(By.CLASS_NAME,"chatmsg")
 
-# Fechar o navegador após a conclusão
+mensagem = "TESTE"
+chatmsg.send_keys(mensagem)
+
+chatmsg.send_keys(Keys.RETURN)
+
 time.sleep(10000)
-
-# Pressione a tecla Enter
-elemento_de_mensagem.send_keys(Keys.RETURN)
-
-# Repita o processo a cada 5 segundos
-while True:
-    time.sleep(5)
-    elemento_de_mensagem.send_keys(Keys.RETURN)
-
-
-
-
-
